@@ -1,0 +1,46 @@
+=========
+Answer 1
+=========
+
+SELECT s.order_id, s.product_id, s.customer_id, s.order_date, s.quantity, s.price, c.customer_name, c.email FROM sales s
+
+JOIN customers c ON s.customer_id = c.customer_id;
+
+=========
+Answer 2
+=========
+
+SELECT order_id, quantity * price AS total_amount
+
+FROM sales;
+
+=========
+Answer 3
+=========
+
+SELECT order_id, customer_id, quantity * price AS total_amount, AVG(quantity * price) OVER (PARTITION BY customer_id) AS avg_order_amount FROM sales;
+
+=========
+Answer 4
+=========
+
+SELECT customer_id, AVG(quantity * price) AS avg_order_amount
+
+FROM sales
+
+GROUP BY customer_id
+
+ORDER BY avg_order_amount DESC
+
+FETCH FIRST 5 ROWS ONLY;
+
+=========
+Answer 5
+=========
+
+SELECT order_id, quantity * price AS total_amount, SUM(quantity * price) OVER (ORDER BY order_date, order_id) AS cumulative_sales
+
+FROM sales;
+
+
+

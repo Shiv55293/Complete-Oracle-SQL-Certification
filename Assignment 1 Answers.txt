@@ -1,0 +1,82 @@
+=========
+Answer 1
+=========
+
+SELECT *
+
+FROM suppliers
+
+WHERE state = 'Georgia'
+
+OR state = 'California';
+
+=========
+Answer 2
+=========
+
+SELECT *
+
+FROM suppliers
+
+WHERE supplier_name like '%wo%'
+
+AND (supplier_name like '%i%' OR supplier_name like '%I%');
+
+=========
+Answer 3
+=========
+
+SELECT *
+
+FROM suppliers
+
+WHERE total_spent >= 37000
+
+AND total_spent <= 80000;
+
+
+=========
+Answer 4
+=========
+
+SELECT supplier_name, state
+
+FROM suppliers
+
+WHERE state IN ('Georgia', 'Alaska')
+
+AND (supplier_id = 100 OR supplier_id > 600)
+
+AND (total_spent < 100000 OR total_spent = 220000);
+
+
+=========
+Answer 5
+=========
+
+False
+
+=========
+Answer 6
+=========
+
+False
+
+=========
+Answer 7
+=========
+
+WHERE 1 = 1
+True
+
+=========
+Answer 8
+=========
+
+True
+
+=========
+Answer 9
+=========
+
+False
